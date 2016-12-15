@@ -1,22 +1,20 @@
-class Adaptee {
-	public method(): void {
-		console.log("`method` of Adaptee is being called");
-	}
-}
+namespace AdapterPattern {
 
-interface Target {
-	call(): void;
-}
+    export class Adaptee {
+        public method(): void {
+            console.log("`method` of Adaptee is being called");
+        }
+    }
 
-class Adapter implements Target {
-	public call(): void {
-		console.log("Adapter's `call` method is being called");
-		var adaptee: Adaptee = new Adaptee();
-		adaptee.method();
-	}
-}
+    export interface Target {
+        call(): void;
+    }
 
-(function main() {
-	var adapter: Adapter = new Adapter();
-	adapter.call();
-}());
+    export class Adapter implements Target {
+        public call(): void {
+            console.log("Adapter's `call` method is being called");
+            var adaptee: Adaptee = new Adaptee();
+            adaptee.method();
+        }
+    }
+}

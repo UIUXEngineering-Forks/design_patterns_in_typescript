@@ -1,4 +1,4 @@
-module Builder {
+namespace BuilderPattern {
     export class UserBuilder {
         private name: string;
         private age: number;
@@ -19,7 +19,7 @@ module Builder {
         get Age() {
             return this.age;
         }
-        setPhone(value: string): UserBuilder { 
+        setPhone(value: string): UserBuilder {
             this.phone = value;
             return this;
         }
@@ -67,12 +67,3 @@ module Builder {
     }
 
 }
-
-(function main() {
-    var u: Builder.User = new Builder.UserBuilder("Jancsi")
-                        .setAge(12)
-                        .setPhone("0123456789")
-                        .setAddress("asdf")
-                        .build();
-    console.log(u.Name + " " + u.Age + " " + u.Phone + " " + u.Address);
-}());
